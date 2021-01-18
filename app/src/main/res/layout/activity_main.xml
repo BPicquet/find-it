@@ -78,6 +78,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="56dp"
         android:background="#34D0C1"
+        android:onClick="onClickBtnReturn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test" />
@@ -93,7 +94,7 @@
         android:cropToPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_info_details" />
+        app:srcCompat="@android:drawable/stat_notify_chat" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
@@ -111,7 +112,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txtQuestion"
                 android:layout_width="243dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="19dp"
@@ -129,52 +130,56 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/answer1"
                 android:layout_width="250dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="48dp"
+                android:onClick="onClickAnswerOne"
                 android:text="Iron man"
                 app:backgroundTint="#FF9F1C"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/txtQuestion" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/answer2"
                 android:layout_width="250dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
+                android:onClick="onClickAnswerTwo"
                 android:text="Superman"
                 app:backgroundTint="#FF9F1C"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button5" />
+                app:layout_constraintTop_toBottomOf="@+id/answer3" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/answer3"
                 android:layout_width="250dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
+                android:onClick="onClickAnswerThree"
                 android:text="Captain America"
                 app:backgroundTint="#FF9F1C"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintTop_toBottomOf="@+id/answer4" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/answer4"
                 android:layout_width="250dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
+                android:onClick="onClickAnswerFour"
                 android:text="Batman"
                 app:backgroundTint="#FF9F1C"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                app:layout_constraintTop_toBottomOf="@+id/answer1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
