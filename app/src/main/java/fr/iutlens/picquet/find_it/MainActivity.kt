@@ -1,13 +1,15 @@
 package fr.iutlens.picquet.find_it
 
+import android.R
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +17,10 @@ class MainActivity : AppCompatActivity() {
     var numberOfGoodAnswers: Int = 0
     var currentQuizIndex: Int = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(fr.iutlens.picquet.find_it.R.layout.activity_main)
         quizs.add(Quiz("Quel super héros porte un bouclier ?", "Iron Man", "Spiderman", "Captain America","Drax", 3))
         quizs.add(Quiz("Combien y'a t'il de pierre de l'infini ?", "4", "10", "7","6", 4))
         quizs.add(Quiz("Qui est Groot ?", "Un arbre", "Une tasse", "Un humain","Un marsien", 1))
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showQuestion(quiz: Quiz){
+        chronometer.start()
         txtQuestion.setText(quiz.question)
         answer1.setText(quiz.answer1)
         answer2.setText(quiz.answer2)
@@ -42,18 +46,23 @@ class MainActivity : AppCompatActivity() {
 
     fun handleAnswer(answerID: Int){
         val quiz = quizs.get(currentQuizIndex)
+
         if(quiz.isCorrect(answerID)) {
             numberOfGoodAnswers++
             Toast.makeText(this, "+1", Toast.LENGTH_SHORT).show()
         } else{
             Toast.makeText(this, "+0", Toast.LENGTH_SHORT).show()
         }
+
         currentQuizIndex++
+        counterQuestion.text = "Question " + currentQuizIndex
+
         if(currentQuizIndex >= quizs.size){
-            // Partie terminée
+            // Partie terminée (stopper timer et afficher score et temps)
+            chronometer.stop()
             var alert = AlertDialog.Builder(this)
             alert.setTitle("Partie terminée")
-            alert.setMessage("Tu as eu " + numberOfGoodAnswers + " bonnes réponses")
+            alert.setMessage("Tu as eu " + numberOfGoodAnswers + " bonnes réponses en ")
             alert.setPositiveButton("ok"){ dialogInterface: DialogInterface?, i: Int ->
                 finish()
             }
