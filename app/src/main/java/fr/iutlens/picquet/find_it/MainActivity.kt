@@ -1,9 +1,9 @@
 package fr.iutlens.picquet.find_it
 
-import android.R
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -60,9 +60,10 @@ class MainActivity : AppCompatActivity() {
         if(currentQuizIndex >= quizs.size){
             // Partie terminée (stopper timer et afficher score et temps)
             chronometer.stop()
+            val elapsedMillis: Long = SystemClock.elapsedRealtime() - chronometer.getBase()
             var alert = AlertDialog.Builder(this)
             alert.setTitle("Partie terminée")
-            alert.setMessage("Tu as eu " + numberOfGoodAnswers + " bonnes réponses en ")
+            alert.setMessage("Tu as eu " + numberOfGoodAnswers + " bonnes réponses en " + (elapsedMillis/1000) + " secondes.")
             alert.setPositiveButton("ok"){ dialogInterface: DialogInterface?, i: Int ->
                 finish()
             }
