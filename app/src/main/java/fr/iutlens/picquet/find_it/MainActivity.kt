@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         quizs.add(Quiz("Qui est Groot ?", "Un arbre", "Une tasse", "Un humain","Un marsien", 1))
         quizs.add(Quiz("Où Iron man a t'il créé sa première armure ?", "Dans sa maison", "Dans une grotte", "Dans son labo","Au bar", 2))
         quizs.add(Quiz("Quel relation unit Steve Rogers et Bucky ?", "Ils sont frères", "Ils sont ami d'enfance", "Ils sont amants","Ils sont cousins", 2))
+        quizs.add(Quiz("Comment se nomme la fille de Scott Lang ?", "Laure", "Megane", "Sarah","Cassie", 4))
+        quizs.add(Quiz("Quel est le vrai métier de Stephen Strange ?", "Docteur", "Chirurgien", "Dentiste","Professeur", 2))
+        quizs.add(Quiz("Comment s'appelle la soeur de Black Panther ?", "Shuri", "Suri", "Surimi","Shuiri", 1))
+        quizs.add(Quiz("De quoi Heimdall est le gardien ?", "Le Bifröst", "Le Tesseract", "Le marteau","Odin", 1))
+        quizs.add(Quiz("Qui ne fait pas partie du MCU ?", "Spiderman", "Thor", "Batman","Odin", 2))
 
         showQuestion(quizs.get(currentQuizIndex))
     }
